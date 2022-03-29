@@ -6,22 +6,45 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-scripts": "5.0.0",
+    "react-scripts": "^5.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src --ext .js",
+    "server": "nodemon ./server/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "teste"
+    }
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "eol-last": "error",
+      "semi": [
+        "error",
+        "never"
+      ],
+      "newline-before-return": "error",
+      "no-console": "warn",
+      "no-else-return": "error",
+      "no-return-assign": "error",
+      "no-trailing-spaces": "error",
+      "no-unused-vars": "error"
+    }
   },
   "browserslist": {
     "production": [
@@ -34,5 +57,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^7.0.4"
   }
 }
