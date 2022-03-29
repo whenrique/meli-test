@@ -25,6 +25,9 @@
   "lint-staged": {
     "src/**/*.{js,jsx}": "eslint"
   },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -57,6 +60,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7"
   }
