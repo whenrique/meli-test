@@ -1,0 +1,38 @@
+.header {
+  background-color: #FFE600;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+
+  > .logo {
+    width: 80px;
+    height: auto;
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+    width: 960px;
+    
+    &-input {
+      width: 100%;
+      padding: 6px;
+      border: 0;
+      outline: 0;
+    }
+
+    &-button {
+      width: 24px;
+      height: 25px;
+      border: 0;
+      padding: 0;
+      background-color: #d5d5d5;
+      cursor: pointer;
+
+      > .icon-search {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
