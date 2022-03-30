@@ -25,9 +25,10 @@ const Header = ({ onSubmit }) => {
 
   return (
     <header role='heading' aria-level='1' className="header">
-      <Logo className="logo" />
+      <Logo className="header-logo" />
+      <div className="header-menu"></div>
       <form role='search' onSubmit={handleSubmit} className='form'>
-        <input type="text" data-testid='search-input' value={query} onChange={handleQuery} placeholder='Nunca dejes de buscar' className="form-input" />
+        <div className="form-input-control"><input type="text" data-testid='search-input' value={query} onChange={handleQuery} placeholder='Nunca dejes de buscar' className="form-input" /></div>
         <button type="submit" data-testid='search-button' className="form-button">
           <SearchIcon className="icon-search" />
         </button>

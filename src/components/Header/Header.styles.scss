@@ -1,32 +1,54 @@
-.header {
-  background-color: #FFE600;
-  padding: 16px;
-  display: flex;
-  justify-content: center;
+@import '../../utils/_media-queries.scss';
+@import '../../utils/_variables.scss';
 
-  > .logo {
+.header {
+  background-color: $primary;
+  padding: calc($base * 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;;
+
+  &-logo {
     width: 80px;
     height: auto;
   }
 
+  @include for-desktop-up {
+    flex-direction: row;
+  }
+
   .form {
-    display: flex;
-    align-items: center;
-    width: 960px;
-    
+    display: none;
+    width: 100%;
+
+    &.is-open {
+      display: flex;
+    }
+
+    @include for-desktop-up {
+      display: flex;
+      align-items: center;
+      width: 960px;
+    }
+
+    &-input-control {
+      width: 100%;
+    }
+
     &-input {
       width: 100%;
-      padding: 6px;
+      padding: $base;
       border: 0;
       outline: 0;
     }
 
     &-button {
-      width: 24px;
-      height: 25px;
+      width: 30px;
+      height: 30px;
       border: 0;
       padding: 0;
-      background-color: #d5d5d5;
+      background-color: $neutral;
       cursor: pointer;
 
       > .icon-search {
