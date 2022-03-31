@@ -1,0 +1,18 @@
+@import '../../utils/_variables.scss';
+
+.products {
+  background-color: $white;
+  padding: $base;
+  
+  & .product {
+    padding: $base;
+    border-bottom: 1px solid $neutral;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+    .location {
+      margin-left: auto;
+    }
+  }
+}
