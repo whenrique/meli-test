@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './Breadcrumb.styles.scss'
 
 const Breadcrumb = ({ path = [] }) => {
-  if (!Object.keys(path).length) return null
+  if (!path.length) return null
 
   const addSign = (index) => {
     const position = index + 1

@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import {
+  Routes,
+  Route,
+  useNavigate
+} from "react-router-dom"
 
-function App() {
+import Home from "pages/Home"
+import Items from "pages/Items/Items"
+import Item from "pages/Item"
+
+const App = () => {
+  const navigate = useNavigate()
+  const handleSubmit = (query) => {
+    navigate(`/items?q=${query}`)
+
+    return null
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Routes>
+      <Route exact path="/" element={<Home onSubmit={handleSubmit} />} />
+      <Route exact path="/items" element={<Items onSubmit={handleSubmit} />} />
+      <Route exact path="/items/:id" element={<Item onSubmit={handleSubmit} />} />
+    </Routes>
+  )
 }
 
-export default App;
+export default App

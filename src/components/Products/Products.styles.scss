@@ -1,4 +1,4 @@
-@import '../../utils/_variables.scss';
+@import '../../styles/_variables.scss';
 
 .products {
   background-color: $white;
@@ -10,6 +10,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    color: inherit;
+    text-decoration: none;
+
+    &:last-child {
+      border: 0;
+    }
     
     .location {
       margin-left: auto;

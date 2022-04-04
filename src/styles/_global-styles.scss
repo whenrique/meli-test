@@ -1,0 +1,21 @@
+@import './_media-queries.scss';
+@import './_variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $gray;
+}
+
+.container {
+  width: 100%;
+
+  @include for-desktop-up {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,7 @@
+@import '../../styles/_media-queries.scss';
+@import '../../styles/_variables.scss';
+
+.main {
+  background-color: $white;
+  padding: calc($base * 2);
+}

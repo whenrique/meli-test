@@ -1,9 +1,14 @@
+import { BrowserRouter as Router } from 'react-router-dom'
 import { fireEvent, render, screen } from "@testing-library/react"
 import Header from "./Header"
 
 describe('Component: Header', () => {
   it('Should render without errors', () => {
-    render(<Header />)
+    render(
+      <Router>
+        <Header />
+      </Router>
+    )
     const header = screen.getByRole('heading')
 
     expect(header).toBeInTheDocument()
@@ -12,7 +17,11 @@ describe('Component: Header', () => {
   it('should submit with query', () => {
     const handleSubmit = jest.fn()
 
-    render(<Header onSubmit={handleSubmit} />)
+    render(
+      <Router>
+        <Header onSubmit={handleSubmit} />
+      </Router>
+    )
 
     const form = screen.getByRole('search')
     const input = screen.getByTestId('search-input')
@@ -26,7 +35,11 @@ describe('Component: Header', () => {
   it('shouldn\'t submit without query', () => {
     const handleSubmit = jest.fn()
 
-    render(<Header onSubmit={handleSubmit} />)
+    render(
+      <Router>
+        <Header onSubmit={handleSubmit} />
+      </Router>
+    )
 
     const form = screen.getByRole('search')
     const input = screen.getByTestId('search-input')
@@ -40,7 +53,11 @@ describe('Component: Header', () => {
   it('should submit by click', () => {
     const handleSubmit = jest.fn()
 
-    render(<Header onSubmit={handleSubmit} />)
+    render(
+      <Router>
+        <Header onSubmit={handleSubmit} />
+      </Router>
+    )
 
     const input = screen.getByTestId('search-input')
     const button = screen.getByTestId('search-button')
@@ -54,7 +71,11 @@ describe('Component: Header', () => {
   it('shouldn\'t submit by click', () => {
     const handleSubmit = jest.fn()
 
-    render(<Header onSubmit={handleSubmit} />)
+    render(
+      <Router>
+        <Header />
+      </Router>
+    )
 
     const input = screen.getByTestId('search-input')
     const button = screen.getByTestId('search-button')

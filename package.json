@@ -8,24 +8,29 @@
     "@testing-library/user-event": "^13.5.0",
     "cors": "^2.8.5",
     "express": "^4.17.3",
+    "node-fetch": "^2.0.0",
     "nodemon": "^2.0.15",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.0",
     "sass": "^1.49.9",
+    "use-http": "^1.0.26",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nodemon -r esm ./src/server/index.js | react-scripts start",
+    "start-client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src --ext .js",
-    "server": "nodemon ./server/index.js",
+    "server": "nodemon -r esm ./src/server/index.js",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
+  "proxy": "http://localhost:8000/",
   "lint-staged": {
     "src/**/*.{js,jsx}": "eslint"
   },
@@ -88,6 +93,7 @@
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
+    "esm": "^3.2.25",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "webpack": "^5.70.0"

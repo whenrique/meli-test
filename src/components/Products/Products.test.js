@@ -9,14 +9,4 @@ describe('Component: Products', () => {
     const rowgroup = screen.queryByRole('rowgroup')
     expect(rowgroup).toBeInTheDocument()
   })
-
-  it('should not render not found page when empty products prop', () => {
-    const customProps = {
-      products: []
-    }
-
-    render(<Products {...customProps} />)
-    const rowgroup = screen.getByText(/Produto não encontrado!/ig)
-    expect(rowgroup).toBeInTheDocument()
-  })
 })

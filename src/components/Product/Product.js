@@ -1,17 +1,33 @@
-const Product = () => (
-  <div role='main'>
-    <img />
+import formatPrice from 'utils/format-price'
+import './Product.styles.scss'
+
+const Product = ({ product, loading }) => {
+  const { item } = product || {}
+
+  const price = formatPrice(item?.price)
+
+  return loading ? (
+    'Loading...'
+  ) : (
+  <div role='main' className="product">
+    <figure className='photo'>
+      <img src={item?.picture} alt={item?.title} />
+    </figure>
     <div className="info">
-      <p>Nuevo - 234 vendiso</p>
-      <h2>Deco Reverse Sombrero Oxfor</h2>
-      <h3># 1.980</h3>
-      <button>Comprar</button>
+      <p>{item?.condition} - {item?.sold_quantity} vendidos</p>
+      <h2 className='title'>{item?.title}</h2>
+      <p className='price'>
+        {price?.map(val => (
+          <span>{val}</span>
+        ))}
+      </p>
+      <button className="button">Comprar</button>
     </div>
     <div className="description">
-      <h2>Descrpción del producto</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2>Descripción del producto</h2>
+      <p>{item?.description}</p>
     </div>
   </div>
-)
+)}
 
 export default Product

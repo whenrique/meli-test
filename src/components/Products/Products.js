@@ -1,44 +1,53 @@
+import PropTypes from 'prop-types'
+
 import './Products.styles.scss'
+import { LIMIT } from './constants'
 
-const Products = ({ products }) => {
-  const { items } = products
+const Products = ({ products, loading }) => {
+  const { items } = products || {}
 
-  return (
+  return loading ? (
+    'Loading...'
+  ) : (
     <div role='rowgroup' className='products'>
-      {!items.length ? (
-        <NotFound />
-      ) : (
-        <>
-          {items.map((product, index) => (
-            <Product key={index} product={product} />
-          ))}
-        </>
-      )}
+      <>
+        {items?.slice(0, LIMIT).map((product, index) => (
+          <Product key={index} product={product} />
+        ))}
+      </>
     </div>
   )
 }
 
 const Product = ({ product }) => {
-  const { picture, title, price, location } = product
+  const { picture, title, price, location, id } = product
 
   return (
-    <div role='row' className='product'>
+    <a href={`/items/${id}`} role='row' className='product'>
       <figure>
         <img src={picture} alt={title} />
       </figure>
       <div className="info">
-        <p>{price.currency}</p>
+        <p>
+          {price.amount.toLocaleString('es-AR', {
+            currency: price.currency,
+            style: 'currency'
+          })}
+      </p>
         <h2>{title}</h2>
       </div>
       <p className='location'>{location}</p>
-    </div>
+    </a>
   )
 }
 
-const NotFound = () => (
-  <div>
-    <p>Produto não encontrado!</p>
-  </div>
-)
+Products.propTypes = {
+  products: PropTypes.object,
+  loading: PropTypes.bool
+}
+
+Product.propTypes = {
+  product: PropTypes.object
+}
 
 export default Products

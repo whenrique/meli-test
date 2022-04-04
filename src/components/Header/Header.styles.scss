@@ -1,13 +1,21 @@
-@import '../../utils/_media-queries.scss';
-@import '../../utils/_variables.scss';
+@import '../../styles/_global-styles.scss';
+@import '../../styles/_media-queries.scss';
+@import '../../styles/_variables.scss';
 
 .header {
   background-color: $primary;
   padding: calc($base * 2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;;
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    @include for-desktop-up {
+      justify-content: center;
+    }
+  }
 
   &-logo {
     width: 80px;
@@ -15,12 +23,43 @@
   }
 
   @include for-desktop-up {
-    flex-direction: row;
+    .container {
+      flex-direction: row;
+    }
+  }
+
+  &-menu {
+    height: 3px;
+    flex-basis: 32px;
+    background-color: $blue;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: $blue;
+      position: absolute;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      top: 8px;
+    }
+
+    @include for-desktop-up {
+      display: none;
+    }
   }
 
   .form {
-    display: none;
     width: 100%;
+    display: none;
 
     &.is-open {
       display: flex;

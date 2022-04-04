@@ -1,8 +1,9 @@
-@import '../../utils/_variables.scss';
+@import '../../styles/_variables.scss';
 
 .breadcrumb {
   list-style: none;
   display: flex;
+  padding:  calc($base * 2) 0;
 
   &-item {
     margin-right: $base;
